@@ -7,11 +7,13 @@ import com.example.cassapp.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
+@Order(3)
 @Component
 public class FindOperationRunner implements CommandLineRunner {
 
@@ -22,6 +24,7 @@ public class FindOperationRunner implements CommandLineRunner {
     UserRepository userRepository;
 
     @Override
+
     public void run(String... args) throws Exception {
 
         //Retrive all records using findAll() method
@@ -32,9 +35,10 @@ public class FindOperationRunner implements CommandLineRunner {
         users.forEach(System.out::println);
 
         //Retrive record by Id using findById() method
-        Optional<Invoice> opt= repo.findById(5);
-        if(opt.isPresent()) {
-            System.out.println(opt.get().getName());;
+        Optional<Invoice> opt = repo.findById(5);
+        if (opt.isPresent()) {
+            System.out.println(opt.get().getName());
+            ;
         }
 
         //Retrive records by invoice name using findByName() method

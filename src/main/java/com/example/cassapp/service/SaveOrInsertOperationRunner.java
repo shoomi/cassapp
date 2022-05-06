@@ -8,12 +8,14 @@ import com.example.cassapp.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Order(1)
 @Component
 public class SaveOrInsertOperationRunner implements CommandLineRunner {
 

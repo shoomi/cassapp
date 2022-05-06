@@ -27,23 +27,33 @@ public class FindOperationRunner implements CommandLineRunner {
 
     public void run(String... args) throws Exception {
 
-        //Retrive all records using findAll() method
-        List<Invoice> invoices = repo.findAll();
-        invoices.forEach(System.out::println);
+        findAllInvoices();
+        findAllUsers();
+        findInvoiceById();
+        findInvoiceByName();
 
-        List<User> users = userRepository.findAll();
-        users.forEach(System.out::println);
+    }
 
-        //Retrive record by Id using findById() method
-        Optional<Invoice> opt = repo.findById(5);
-        if (opt.isPresent()) {
-            System.out.println(opt.get().getName());
-            ;
-        }
-
+    private void findInvoiceByName() {
         //Retrive records by invoice name using findByName() method
         List<Invoice> invoicesByName = repo.findByName("Inv4");
         invoicesByName.forEach(System.out::println);
+    }
 
+    private void findInvoiceById() {
+        //Retrive record by Id using findById() method
+        Optional<Invoice> opt = repo.findById(5);
+        opt.ifPresent(invoice -> System.out.println(invoice.getName()));
+    }
+
+    private void findAllUsers() {
+        List<User> users = userRepository.findAll();
+        users.forEach(System.out::println);
+    }
+
+    private void findAllInvoices() {
+        //Retrive all records using findAll() method
+        List<Invoice> invoices = repo.findAll();
+        invoices.forEach(System.out::println);
     }
 }

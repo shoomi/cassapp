@@ -28,6 +28,19 @@ public class SaveOrInsertOperationRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        saveInvoices();
+        saveUsers();
+    }
+
+    private void saveUsers() {
+        Map<String, String> userAccounts = new HashMap<>();
+        userAccounts.put("PNP", "NJKNJK^KJ");
+        userAccounts.put("MONOBANK", "NJKN$KJ");
+        User user = new User(UUIDs.timeBased(), "John Vain", userAccounts);
+        userRepository.save(user);
+    }
+
+    private void saveInvoices() {
         //saving one record into Cassandra DB using save() method
         Invoice inv = new Invoice(1, "Inv1", "POS34523", 295.74);
         repo.save(inv);
@@ -45,11 +58,5 @@ public class SaveOrInsertOperationRunner implements CommandLineRunner {
 
         //saving one record into Cassandra DB using insert() method
         repo.insert(new Invoice(7, "Inv7", "VOS34527", 297.65));
-
-        Map<String, String> userAccounts = new HashMap<>();
-        userAccounts.put("PNP", "NJKNJK^KJ");
-        userAccounts.put("MONOBANK", "NJKN$KJ");
-        User user = new User(UUIDs.timeBased(), "John Vain", userAccounts);
-        userRepository.save(user);
     }
 }

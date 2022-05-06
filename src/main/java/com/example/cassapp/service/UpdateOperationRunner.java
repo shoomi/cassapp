@@ -1,6 +1,6 @@
 package com.example.cassapp.service;
 
-import com.example.cassapp.pojo.Invoice;
+import com.example.cassapp.entity.Invoice;
 import com.example.cassapp.repository.InvoiceRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

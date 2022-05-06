@@ -1,6 +1,6 @@
 package com.example.cassapp.repository;
 
-import com.example.cassapp.pojo.Invoice;
+import com.example.cassapp.entity.Invoice;
 
 import org.springframework.data.cassandra.repository.AllowFiltering;
 import org.springframework.data.cassandra.repository.CassandraRepository;

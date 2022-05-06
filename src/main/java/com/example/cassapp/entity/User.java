@@ -1,7 +1,10 @@
-package com.example.cassapp.pojo;
+package com.example.cassapp.entity;
 
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
+
+import java.util.Map;
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -11,11 +14,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Invoice {
+public class User {
 
     @PrimaryKey
-    private Integer id;
+    private UUID id;
     private String name;
-    private String number;
-    private Double amount;
+    private Map<String, String> accounts;
 }
